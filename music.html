@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MoJu-Music</title>
+	<link rel="stylesheet" type="text/css" href="src/css/music.css">
+	<script src="src/js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	<div class="music-well">
+
+		<!-- 导航 -->
+		<nav>
+			<div class="logo">MoJu-Music</div>
+			<div class="found">发现音乐</div>
+			<div class="fm">频道</div>
+			<div class="lib">曲库</div>
+		</nav>
+
+		<!-- 榜单 -->
+		<div class="lists">
+			<h1>榜单</h1>
+			<div class="lists-content">
+				<div class="list list-1">
+					<a href="javascript:void(0)">热门回声榜</a>
+				</div>
+				<div class="list list-2">
+					<a href="javascript:void(0)">原创回声榜</a>
+				</div>
+				<div class="list list-3">
+					<a href="javascript:void(0)">视频回声榜</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- contents -->
+		<div class="contents">
+			<div class="recommends">
+				<h1>今日推荐</h1>
+				<div class="recommend-contents">
+					<div class="recommend">
+						
+					</div>
+				</div>
+			</div>
+			<div class="hot_recommnet">
+				<h1>每日精选</h1>
+			</div>
+		</div>
+	</div>
+
+	<div id="template">
+		<div id="template-recommend">
+			<p><img src=""></p>
+			<p class="jvc-name"></p>
+			<p></p>
+		</div>
+	</div>
+</body>
+</html>
+<script>
+	$(function(){
+
+		// 获取今日推荐内容
+		$.ajax({
+			url:'http://47.94.100.222/change.php',
+			dataType:'json',
+			type:'POST',
+			data:{'url':'http://www.app-echo.com/api/recommend/sound-day?page=1'},
+			success:function(res){
+				console.log(res);
+			}
+		})
+	})
+	
+	
+</script>
