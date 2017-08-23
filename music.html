@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="music-well">
-
+		<div class="music-content">
 		<!-- 导航 -->
 		<nav>
 			<div class="logo">MoJu-Music</div>
@@ -30,6 +30,12 @@
 				<div class="list list-3">
 					<a href="javascript:void(0)">视频回声榜</a>
 				</div>
+				<div class="list list-3">
+					<a href="javascript:void(0)">名人</a>
+				</div>
+				<div class="list list-3">
+					<a href="javascript:void(0)">专辑</a>
+				</div>
 			</div>
 		</div>
 
@@ -45,22 +51,31 @@
 			</div>
 			<div class="hot_recommnet">
 				<h1>每日精选</h1>
+				<div class="hot"></div>
 			</div>
 		</div>
+	</div>
 	</div>
 
 	<div id="template">
 		<div id="template-recommend">
-			<p><img src=""></p>
+			<p class="template-cover"><img src="" class="jvc-cover"></p>
 			<p class="jvc-name"></p>
-			<p></p>
+			<p class="jvc-fm"></p>
+			<span><i>分享</i><b class="jvc-share"></b></span>
+			<span><i>喜欢</i><b class="jvc-like"></b></span>
+			<span><i>评论</i><b class="jvc-comment"></b></span>
+		</div>
+		<div id="template-hot">
+			<p class="hot-cover"><img src="" class="jvc-cover"></p>
+			<p class="jvc-name"></p>
+			<p class="jvc-tag"></p>
 		</div>
 	</div>
 </body>
 </html>
 <script>
 	$(function(){
-
 		// 获取今日推荐内容
 		$.ajax({
 			url:'http://47.94.100.222/change.php',
@@ -68,7 +83,39 @@
 			type:'POST',
 			data:{'url':'http://www.app-echo.com/api/recommend/sound-day?page=1'},
 			success:function(res){
-				console.log(res);
+				var lists=res.list;
+				// console.log(lists);
+				for(var i=0;i<lists.length;i++)
+				{
+					var id='list-'+i;
+					$('#template-recommend').clone().attr('id',id).appendTo($('.recommend')).show();
+					$('#'+id).find('.jvc-cover').attr('src',lists[i].sound.pic)
+					$('#'+id).find('.jvc-name').html(lists[i].sound.name)
+					$('#'+id).find('.jvc-fm').html(lists[i].sound.channel.name)
+					$('#'+id).find('.jvc-share').html(lists[i].sound.share_count)
+					$('#'+id).find('.jvc-like').html(lists[i].sound.like_count)
+					$('#'+id).find('.jvc-comment').html(lists[i].sound.comment_count)
+				}
+			}
+		})
+
+		// 获取每日精选内容
+		$.ajax({
+			url:'http://47.94.100.222/change.php',
+			dataType:'json',
+			data:{'url':'http://www.app-echo.com/api/other/index'},
+			type:'POST',
+			success:function(res){
+				var lists=res.hot_recommend;
+				console.log(lists);
+				for(var i=0;i<lists.length;i++)
+				{
+					var id='hot-'+i;
+					$('#template-hot').clone().attr('id',id).appendTo($('.hot')).show();
+					$('#'+id).find('.jvc-cover').attr('src',lists[i].pic);
+					$('#'+id).find('.jvc-name').html(lists[i].name);
+					$('#'+id).find('.jvc-tag').html(lists[i].channel.name)
+				}
 			}
 		})
 	})
