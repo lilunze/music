@@ -3,18 +3,33 @@
 <head>
 	<meta charset="UTF-8">
 	<title>MoJu-Music</title>
+	<link rel="stylesheet" href="./src/css/sound.css">
 	<script src="src/js/jquery-1.11.3.min.js"></script>
 </head>
 <body>
-	<div>歌名：<span class="jvc-name"></span></div>
-	<div>频道：<span class="jvc-fm"></span></div>
-	<div>封面：<img src="" class="jvc-cover" style="width: 100px;"></div>
-	<div><a href="javascript:void(0)" id="play">播放</a><a href="javascript:void(0)" id="pause">暂停</a></div>
-	<div>
-		<h1>歌曲信息</h1>
-		<pre class="jvc-info"></pre>
+	<div class="music-well">
+		<!-- 导航 -->
+		<nav>
+			<div class="logo">MoJu-Music</div>
+			<div class="found">发现音乐</div>
+			<div class="fm">频道</div>
+			<div class="lib">曲库</div>
+		</nav>
 	</div>
-	<div>
+
+	
+	
+	<div class="sound-info">
+		<h1>歌曲信息</h1>
+		<div>歌名：<span class="jvc-name"></span></div>
+		<div>频道：<span class="jvc-fm"></span></div>
+		<div>封面：<img src="" class="jvc-cover" style="width: 100px;"></div>
+		<div><a href="javascript:void(0)" id="play">播放</a><a href="javascript:void(0)" id="pause">暂停</a></div>
+		
+		<span class="jvc-info"></span>
+	</div>
+
+	<div class="sound-comments">
 		<h1>热门评论</h1>
 		<div class="comments"></div>
 	</div>
