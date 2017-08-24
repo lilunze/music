@@ -75,3 +75,44 @@ http://www.app-echo.com/api/other/index
 http://www.app-echo.com/api/sound/info?id=1289833&comment=1
 ```
 
+- 获取热门榜单
+```
+传递参数limit=返回数据条数
+// 日榜
+http://www.app-echo.com/api/rank/sound-hot?periods=daily&limit=12
+
+// 周榜
+http://www.app-echo.com/api/rank/sound-hot?periods=weekly&limit=12
+
+// 月榜
+http://www.app-echo.com/api/rank/sound-hot?periods=monthly&limit=12
+
+```
+
+- 获取原创榜单
+```
+传递参数limit=返回数据条数
+// 日榜
+http://www.app-echo.com/api/rank/sound-origin?periods=daily&limit=12
+
+// 周榜
+http://www.app-echo.com/api/rank/sound-origin?periods=weekly&limit=12
+
+// 月榜
+http://www.app-echo.com/api/rank/sound-origin?periods=monthly&limit=12
+
+```
+
+- 获取视频榜单
+```
+// 日榜
+http://www.app-echo.com/api/rank/mv-hot?periods=daily&limit=12
+
+// 周榜
+http://www.app-echo.com/api/rank/mv-hot?periods=weekly&limit=12
+
+// 月榜
+http://www.app-echo.com/api/rank/mv-hot?periods=monthly&limit=12
+```
+
+
