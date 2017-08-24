@@ -6,16 +6,43 @@
 	<script src="src/js/jquery-1.11.3.min.js"></script>
 </head>
 <body>
-	
+	<div><p></p></div>
 </body>
 </html>
 <script>
 	var id = location.search;
 	id= id.substring(4,id.length);
-	console.log(id);
 
 	// 获取歌手基本信息
 	$.ajax({
-		
+		url:'http://47.94.100.222/change.php',
+		dataType:'json',
+		type:'POST',
+		data:{'url':'http://www.app-echo.com/api/user/info?id='+id},
+		success:function(res){
+			console.log(res);
+		}
+	})
+
+	// 获取歌手详细信息
+	$.ajax({
+		url:'http://47.94.100.222/change.php',
+		dataType:'json',
+		type:'POST',
+		data:{'url':'http://www.app-echo.com/api/star/info?uid='+id},
+		success:function(res){
+			console.log(res);
+		}
+	})
+
+	// 获取歌手其他信息
+	$.ajax({
+		url:'http://47.94.100.222/change.php',
+		dataType:'json',
+		type:'POST',
+		data:{'url':'http://www.app-echo.com/api/integral/get-rank-list?uid='+id+'&limit=50'},
+		success:function(res){
+			console.log(res);
+		}
 	})
 </script>

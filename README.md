@@ -46,6 +46,7 @@ http://www.app-echo.com/api/recommend/sound-day?page=1
 
 
 - 专辑
+
 ```
 http://www.app-echo.com/api/album/list?limit=20&condation=1%3A0%2C2%3A0
 ```
@@ -77,6 +78,7 @@ http://www.app-echo.com/api/famous/user-list-by-type?famous_type=2&limit=44
 ```
 
 - 名人的详细信息
+
 ```
 // 基本信息
 http://www.app-echo.com/api/user/info?id=
@@ -92,6 +94,7 @@ http://www.app-echo.com/api/integral/get-rank-list?uid= &limit=50
 
 
 - 视频回声榜，原创回声榜，热门回声榜，每日精选
+
 ```
 http://www.app-echo.com/api/other/index
 ```
@@ -161,4 +164,52 @@ http://www.app-echo.com/api/rank/mv-hot?periods=weekly&limit=12
 http://www.app-echo.com/api/rank/mv-hot?periods=monthly&limit=12
 ```
 
+- 获取新上专辑
 
+```
+// 全部分类
+http://www.app-echo.com/api/album/list?limit=20&page=2&condition=1%3A0%2C2%3A0
+
+// 摇滚
+http://www.app-echo.com/api/album/list?limit=20&condition=1%3A1%2C2%3A0
+
+// 流行
+http://www.app-echo.com/api/album/list?limit=20&condition=1%3A2%2C2%3A0
+
+// 电子
+http://www.app-echo.com/api/album/list?limit=20&condition=1%3A3%2C2%3A0
+
+// 古典
+http://www.app-echo.com/api/album/list?limit=20&condition=1%3A4%2C2%3A0
+
+// 爵士
+http://www.app-echo.com/api/album/list?limit=20&condition=1%3A5%2C2%3A0
+
+// 民谣
+http://www.app-echo.com/api/album/list?limit=20&condition=1%3A6%2C2%3A0
+
+// 原声
+http://www.app-echo.com/api/album/list?limit=20&condition=1%3A7%2C2%3A0
+
+// 说唱
+http://www.app-echo.com/api/album/list?limit=20&condition=1%3A8%2C2%3A0
+
+// 世界音乐
+http://www.app-echo.com/api/album/list?limit=20&condition=1%3A9%2C2%3A0
+
+// 轻音乐
+http://www.app-echo.com/api/album/list?limit=20&condition=1%3A10%2C2%3A0
+
+// 节奏蓝调
+http://www.app-echo.com/api/album/list?limit=20&condition=1%3A12%2C2%3A0
+
+// 蓝调
+http://www.app-echo.com/api/album/list?limit=20&condition=1%3A11%2C2%3A0
+
+```
+
+- 获取热门专辑
+
+```
+http://www.app-echo.com/api/album/list-for-tab?type=hot&limit=20
+```
