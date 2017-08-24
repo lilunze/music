@@ -76,6 +76,19 @@ http://www.app-echo.com/api/famous/type-list
 http://www.app-echo.com/api/famous/user-list-by-type?famous_type=2&limit=44
 ```
 
+- 名人的详细信息
+```
+// 基本信息
+http://www.app-echo.com/api/user/info?id=
+
+// 详细信息
+http://www.app-echo.com/api/star/info?uid=
+
+// 获取歌手的专辑排行
+http://www.app-echo.com/api/integral/get-rank-list?uid= &limit=50
+
+```
+
 
 
 - 视频回声榜，原创回声榜，热门回声榜，每日精选

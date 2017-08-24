@@ -34,7 +34,7 @@
 
 	<div class="template" style="display: none;">
 		<div id="template-famous">
-			<p><img src="" class="jvc-cover"></p>
+			<p><a href="" class="jvc-link"><img src="" class="jvc-cover"></a></p>
 			<p class="jvc-name"></p>
 			<p class="jvc-follow"></p>
 		</div>
@@ -60,6 +60,7 @@
 				$('#'+id).find('.jvc-cover').attr('src',famous[i].avatar);
 				$('#'+id).find('.jvc-name').html(famous[i].name);
 				$('#'+id).find('.jvc-follow').html(famous[i].followed_count+'人关注');
+				$('#'+id).find('.jvc-link').attr('href','singer.html?id='+famous[i].id);
 			}
 		}
 	})
@@ -79,6 +80,7 @@
 				$('#'+id).find('.jvc-cover').attr('src',famous[i].avatar);
 				$('#'+id).find('.jvc-name').html(famous[i].name);
 				$('#'+id).find('.jvc-follow').html(famous[i].content);
+				$('#'+id).find('.jvc-link').attr('href','singer.html?id='+famous[i].id);
 			}
 		}
 	})
@@ -98,6 +100,7 @@
 				$('#'+id).find('.jvc-cover').attr('src',famous[i].avatar);
 				$('#'+id).find('.jvc-name').html(famous[i].name);
 				$('#'+id).find('.jvc-follow').html(famous[i].content);
+				$('#'+id).find('.jvc-link').attr('href','singer.html?id='+famous[i].id);
 			}
 		}
 	})
@@ -117,6 +120,7 @@
 				$('#'+id).find('.jvc-cover').attr('src',famous[i].avatar);
 				$('#'+id).find('.jvc-name').html(famous[i].name);
 				$('#'+id).find('.jvc-follow').html(famous[i].content);
+				$('#'+id).find('.jvc-link').attr('href','singer.html?id='+famous[i].id);
 			}
 		}
 	})
@@ -136,6 +140,7 @@
 				$('#'+id).find('.jvc-cover').attr('src',famous[i].avatar);
 				$('#'+id).find('.jvc-name').html(famous[i].name);
 				$('#'+id).find('.jvc-follow').html(famous[i].content);
+				$('#'+id).find('.jvc-link').attr('href','singer.html?id='+famous[i].id);
 			}
 		}
 	})
