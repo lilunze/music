@@ -62,7 +62,7 @@
 			<span><i class="icon-comment"></i><b class="jvc-comment"></b></span>
 		</div>
 		<div id="template-hot" class="tpl-hot">
-			<p class="hot-cover"><img src="" class="jvc-cover"></p>
+			<a class="hot-cover jvc-link"><img src="" class="jvc-cover"></a>
 			<div class="hot-info">
 				<p class="jvc-name"></p>
 				<p class="jvc-tag"></p>
@@ -81,7 +81,7 @@
 			data:{'url':'http://www.app-echo.com/api/recommend/sound-day?page=1'},
 			success:function(res){
 				var lists=res.list;
-				console.log(lists);
+				// console.log(lists);
 				for(var i=0;i<lists.length;i++)
 				{
 					var id='list-'+i;
@@ -105,7 +105,7 @@
 			type:'POST',
 			success:function(res){
 				var lists=res.hot_recommend;
-				// console.log(lists);
+				console.log(lists);
 				for(var i=0;i<lists.length;i++)
 				{
 					var id='hot-'+i;
@@ -113,6 +113,7 @@
 					$('#'+id).find('.jvc-cover').attr('src',lists[i].pic);
 					$('#'+id).find('.jvc-name').html(lists[i].name);
 					$('#'+id).find('.jvc-tag').html(lists[i].channel.name)
+					$('#'+id).find('.jvc-link').attr('href','sound.html?id='+lists[i].id);
 				}
 			}
 		})

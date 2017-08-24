@@ -27,7 +27,7 @@
 			<p>评论内容：<span class="jvc-content"></span></p>
 		</div>
 	</div>
-	<audio id="audio" class="jvc-audio" autoplay="false"></audio>
+	<audio id="audio" class="jvc-audio"></audio>
 </body>
 </html>
 <script type="text/javascript">
@@ -60,9 +60,9 @@
 		}
 	})
 	$('#play').on('click',function(){
-		$('.jvc-audio').play();
+		document.getElementById('audio').play();
 	})
 	$('#pause').on('click',function(){
-		$('.jvc-audio').pause();
+		document.getElementById('audio').pause();
 	})
 </script>
