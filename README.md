@@ -46,6 +46,7 @@ http://www.app-echo.com/api/recommend/sound-day?page=1
 
 
 - 专辑
+
 ```
 http://www.app-echo.com/api/album/list?limit=20&condation=1%3A0%2C2%3A0
 ```
@@ -77,6 +78,7 @@ http://www.app-echo.com/api/famous/user-list-by-type?famous_type=2&limit=44
 ```
 
 - 名人的详细信息
+
 ```
 // 基本信息
 http://www.app-echo.com/api/user/info?id=
@@ -92,6 +94,7 @@ http://www.app-echo.com/api/integral/get-rank-list?uid= &limit=50
 
 
 - 视频回声榜，原创回声榜，热门回声榜，每日精选
+
 ```
 http://www.app-echo.com/api/other/index
 ```
