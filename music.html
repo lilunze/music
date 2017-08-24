@@ -8,7 +8,6 @@
 </head>
 <body>
 	<div class="music-well">
-		<div class="music-content">
 		<!-- 导航 -->
 		<nav>
 			<div class="logo">MoJu-Music</div>
@@ -16,60 +15,58 @@
 			<div class="fm">频道</div>
 			<div class="lib">曲库</div>
 		</nav>
-
-		<!-- 榜单 -->
-		<div class="lists">
-			<h1>榜单</h1>
-			<div class="lists-content">
-				<div class="list list-1">
-					<a href="javascript:void(0)">热门回声榜</a>
-				</div>
-				<div class="list list-2">
-					<a href="javascript:void(0)">原创回声榜</a>
-				</div>
-				<div class="list list-3">
-					<a href="javascript:void(0)">视频回声榜</a>
-				</div>
-				<div class="list list-3">
-					<a href="javascript:void(0)">名人</a>
-				</div>
-				<div class="list list-3">
-					<a href="javascript:void(0)">专辑</a>
-				</div>
-			</div>
-		</div>
-
-		<!-- contents -->
-		<div class="contents">
-			<div class="recommends">
-				<h1>今日推荐</h1>
-				<div class="recommend-contents">
-					<div class="recommend">
-						
+		<div class="music-content">
+			<!-- 榜单 -->
+			<div class="lists">
+				<h1>榜单</h1>
+				<div class="lists-content">
+					<div class="list list-1">
+						<a href="javascript:void(0)">热门回声榜</a>
+					</div>
+					<div class="list list-2">
+						<a href="javascript:void(0)">原创回声榜</a>
+					</div>
+					<div class="list list-3">
+						<a href="javascript:void(0)">视频回声榜</a>
+					</div>
+					<div class="list list-4">
+						<a href="javascript:void(0)">名人</a>
+					</div>
+					<div class="list list-5">
+						<a href="javascript:void(0)">专辑</a>
 					</div>
 				</div>
 			</div>
-			<div class="hot_recommnet">
-				<h1>每日精选</h1>
-				<div class="hot"></div>
+
+			<!-- contents -->
+			<div class="contents">
+				<div class="recommends">
+					<h1>今日推荐</h1>
+					<div class="recommend"></div>
+				</div>
+				<div class="hot_recommend">
+					<h1>每日精选</h1>
+					<div class="hot"></div>
+				</div>
 			</div>
 		</div>
 	</div>
-	</div>
 
-	<div id="template">
-		<div id="template-recommend">
+	<div id="template" class="template">
+		<div id="template-recommend" class="tpl-recommend">
 			<p class="template-cover"><img src="" class="jvc-cover"></p>
 			<p class="jvc-name"></p>
 			<p class="jvc-fm"></p>
-			<span><i>分享</i><b class="jvc-share"></b></span>
-			<span><i>喜欢</i><b class="jvc-like"></b></span>
-			<span><i>评论</i><b class="jvc-comment"></b></span>
+			<span><i class="icon-share"></i><b class="jvc-share"></b></span>
+			<span><i class="icon-like"></i><b class="jvc-like"></b></span>
+			<span><i class="icon-comment"></i><b class="jvc-comment"></b></span>
 		</div>
-		<div id="template-hot">
+		<div id="template-hot" class="tpl-hot">
 			<p class="hot-cover"><img src="" class="jvc-cover"></p>
-			<p class="jvc-name"></p>
-			<p class="jvc-tag"></p>
+			<div class="hot-info">
+				<p class="jvc-name"></p>
+				<p class="jvc-tag"></p>
+			</div>
 		</div>
 	</div>
 </body>
