@@ -7,6 +7,8 @@ http://www.app-echo.com/api/recommend/sound-day?page=1
 ```
 
 返回数据object
+
+```
 {
     desc:success,
     list:[
@@ -40,7 +42,7 @@ http://www.app-echo.com/api/recommend/sound-day?page=1
         }
     ]
 }
-
+```
 
 
 - 专辑
@@ -51,8 +53,30 @@ http://www.app-echo.com/api/album/list?limit=20&condation=1%3A0%2C2%3A0
 - echo名人
 
 ```
-http://www.app-echo.com/api/famous/famous-user?limit=5
+<!-- http://www.app-echo.com/api/famous/famous-user?limit=5 -->
+// 名人
+http://www.app-echo.com/api/famous/famous-user?limit=12
+
+// 群星
+http://www.app-echo.com/api/famous/top-user?page=1&limit=12
+
+// 新入驻
+http://www.app-echo.com/api/famous/latest-users?page=1&limit=6
+
+// 推荐
+http://www.app-echo.com/api/famous/recommend-users?page=1&limit=6
+
+// 24小时热门
+http://www.app-echo.com/api/famous/daily-commend-users?page=1&limit=6
+
+// 名人分类标签
+http://www.app-echo.com/api/famous/type-list
+
+// 对应分类的名人
+http://www.app-echo.com/api/famous/user-list-by-type?famous_type=2&limit=44
 ```
+
+
 
 - 视频回声榜，原创回声榜，热门回声榜，每日精选
 ```
@@ -60,6 +84,8 @@ http://www.app-echo.com/api/other/index
 ```
 
 返回数据
+
+```
 {
     status:"",
     desc:"",
@@ -69,6 +95,7 @@ http://www.app-echo.com/api/other/index
     }
 
 }
+```
 
 - 获取专辑详细信息
 

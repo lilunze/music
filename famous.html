@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MoJu-Music</title>
+	<script src="src/js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	<div>
+		<h1>名人</h1>
+		<div class="famous"></div>
+	</div>
+	<div>
+		<h1>群星</h1>
+		<div class="star"></div>
+	</div>
+	<div>
+		<h1>新入驻</h1>
+		<div class="latest"></div>
+	</div>
+	<div>
+		<h1>推荐</h1>
+		<div class="recommend"></div>
+	</div>
+	<div>
+		<h1>24小时名人</h1>
+		<div class="daily"></div>
+	</div>
+	<div>
+		<h1>名人分类</h1>
+		<div class="classify"></div>
+		<div class="classify-content"></div>
+	</div>
+
+	<div class="template" style="display: none;">
+		<div id="template-famous">
+			<p><img src="" class="jvc-cover"></p>
+			<p class="jvc-name"></p>
+			<p class="jvc-follow"></p>
+		</div>
+		<a id="template-tag" href=""></a>
+		<a id="template-singer" href=""></a>
+	</div>
+</body>
+</html>
+<script>
+	// 获取名人信息
+	$.ajax({
+		url:'http://47.94.100.222/change.php',
+		dataType:'json',
+		data:{'url':'http://www.app-echo.com/api/famous/famous-user?limit=8'},
+		type:'POST',
+		success:function(res){
+			var famous=res.lists;
+			// console.log(famous);
+			for(var i=0;i<famous.length;i++)
+			{
+				var id='famous-'+i;
+				$('#template-famous').clone().attr('id',id).appendTo($('.famous')).show();
+				$('#'+id).find('.jvc-cover').attr('src',famous[i].avatar);
+				$('#'+id).find('.jvc-name').html(famous[i].name);
+				$('#'+id).find('.jvc-follow').html(famous[i].followed_count+'人关注');
+			}
+		}
+	})
+
+	// 获取群星
+	$.ajax({
+		url:'http://47.94.100.222/change.php',
+		dataType:'json',
+		data:{'url':'http://www.app-echo.com/api/famous/top-user?page=1&limit=12'},
+		type:'POST',
+		success:function(res){
+			var famous=res.lists;
+			for(var i=0;i<famous.length;i++)
+			{
+				var id='star-'+i;
+				$('#template-famous').clone().attr('id',id).appendTo($('.star')).show();
+				$('#'+id).find('.jvc-cover').attr('src',famous[i].avatar);
+				$('#'+id).find('.jvc-name').html(famous[i].name);
+				$('#'+id).find('.jvc-follow').html(famous[i].content);
+			}
+		}
+	})
+
+	// 获取新入驻
+	$.ajax({
+		url:'http://47.94.100.222/change.php',
+		dataType:'json',
+		data:{'url':'http://www.app-echo.com/api/famous/latest-users?page=1&limit=6'},
+		type:'POST',
+		success:function(res){
+			var famous=res.lists;
+			for(var i=0;i<famous.length;i++)
+			{
+				var id='latest-'+i;
+				$('#template-famous').clone().attr('id',id).appendTo($('.latest')).show();
+				$('#'+id).find('.jvc-cover').attr('src',famous[i].avatar);
+				$('#'+id).find('.jvc-name').html(famous[i].name);
+				$('#'+id).find('.jvc-follow').html(famous[i].content);
+			}
+		}
+	})
+
+	// 获取推荐名人
+	$.ajax({
+		url:'http://47.94.100.222/change.php',
+		dataType:'json',
+		data:{'url':'http://www.app-echo.com/api/famous/recommend-users?page=1&limit=6'},
+		type:'POST',
+		success:function(res){
+			var famous=res.lists;
+			for(var i=0;i<famous.length;i++)
+			{
+				var id='recommend-'+i;
+				$('#template-famous').clone().attr('id',id).appendTo($('.recommend')).show();
+				$('#'+id).find('.jvc-cover').attr('src',famous[i].avatar);
+				$('#'+id).find('.jvc-name').html(famous[i].name);
+				$('#'+id).find('.jvc-follow').html(famous[i].content);
+			}
+		}
+	})
+
+	// 获取24小时名人
+	$.ajax({
+		url:'http://47.94.100.222/change.php',
+		dataType:'json',
+		data:{'url':'http://www.app-echo.com/api/famous/daily-commend-users?page=1&limit=6'},
+		type:'POST',
+		success:function(res){
+			var famous=res.lists;
+			for(var i=0;i<famous.length;i++)
+			{
+				var id='daily-'+i;
+				$('#template-famous').clone().attr('id',id).appendTo($('.daily')).show();
+				$('#'+id).find('.jvc-cover').attr('src',famous[i].avatar);
+				$('#'+id).find('.jvc-name').html(famous[i].name);
+				$('#'+id).find('.jvc-follow').html(famous[i].content);
+			}
+		}
+	})
+
+	// 获取名人分类标签
+	$.ajax({
+		url:'http://47.94.100.222/change.php',
+		dataType:'json',
+		data:{'url':'http://www.app-echo.com/api/famous/type-list'},
+		type:'POST',
+		success:function(res){
+			var lists=res.lists;
+			for(var i=0;i<lists.length;i++)
+			{
+				var id='tag-'+i
+				$('#template-tag').clone().attr('id',id).html(lists[i].famous_type_title).appendTo($('.classify')).show()
+				$('#'+id).attr('href','javascript:show('+lists[i].famous_type+')');
+			}
+		}
+	})
+	show(1);
+	function show(type)
+	{
+		var type=type || 1;
+		var url='http://www.app-echo.com/api/famous/user-list-by-type?famous_type='+type+'&limit=44';
+		$.ajax({
+			url:'http://47.94.100.222/change.php',
+			dataType:'json',
+			data:{'url':url},
+			type:'POST',
+			success:function(res){
+				var users=res.famous_users[0].users;
+				console.log(users);
+				$('.classify-content').empty();
+				for(var i=0;i<users.length;i++)
+				{		
+					var id='singer-'+i;
+					$('#template-singer').clone().attr('id',id).html(users[i].name).appendTo($('.classify-content')).show();
+					$('#'+id).attr('href','singer.html?id='+users[i].id);
+				}
+			}
+		})
+	}
+</script>
