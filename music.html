@@ -54,7 +54,7 @@
 
 	<div id="template" class="template">
 		<div id="template-recommend" class="tpl-recommend">
-			<p class="template-cover"><img src="" class="jvc-cover"></p>
+			<a class="template-cover jvc-link"><img src="" class="jvc-cover"></a>
 			<p class="jvc-name"></p>
 			<p class="jvc-fm"></p>
 			<span><i class="icon-share"></i><b class="jvc-share"></b></span>
@@ -81,7 +81,7 @@
 			data:{'url':'http://www.app-echo.com/api/recommend/sound-day?page=1'},
 			success:function(res){
 				var lists=res.list;
-				// console.log(lists);
+				console.log(lists);
 				for(var i=0;i<lists.length;i++)
 				{
 					var id='list-'+i;
@@ -92,6 +92,7 @@
 					$('#'+id).find('.jvc-share').html(lists[i].sound.share_count)
 					$('#'+id).find('.jvc-like').html(lists[i].sound.like_count)
 					$('#'+id).find('.jvc-comment').html(lists[i].sound.comment_count)
+					$('#'+id).find('.jvc-link').attr('href','sound.html?id='+lists[i].obj_id)
 				}
 			}
 		})
@@ -104,7 +105,7 @@
 			type:'POST',
 			success:function(res){
 				var lists=res.hot_recommend;
-				console.log(lists);
+				// console.log(lists);
 				for(var i=0;i<lists.length;i++)
 				{
 					var id='hot-'+i;

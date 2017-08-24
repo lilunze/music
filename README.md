@@ -4,6 +4,7 @@
 ```
 http://www.app-echo.com/api/recommend/sound-day?page=1
 ```
+
 返回数据object
 {
     desc:success,
@@ -16,7 +17,7 @@ http://www.app-echo.com/api/recommend/sound-day?page=1
             id:"49398",
             is_stage:"0",
             is_today_recommend:"1",
-            obj_id:"1290939",
+            obj_id:"1290939",   //专辑id
             obj_type:"1",
             online_time:"1503496802",
             sorting:"0",
@@ -55,6 +56,7 @@ http://www.app-echo.com/api/famous/famous-user?limit=5
 ```
 http://www.app-echo.com/api/other/index
 ```
+
 返回数据
 {
     status:"",
@@ -65,3 +67,11 @@ http://www.app-echo.com/api/other/index
     }
 
 }
+
+- 获取专辑详细信息
+```
+// id为obj_id
+
+http://www.app-echo.com/api/sound/info?id=1289833&comment=1
+```
+
