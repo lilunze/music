@@ -1,6 +1,7 @@
 # API
 
 - 今日推荐
+
 ```
 http://www.app-echo.com/api/recommend/sound-day?page=1
 ```
@@ -48,6 +49,7 @@ http://www.app-echo.com/api/album/list?limit=20&condation=1%3A0%2C2%3A0
 ```
 
 - echo名人
+
 ```
 http://www.app-echo.com/api/famous/famous-user?limit=5
 ```
@@ -69,6 +71,7 @@ http://www.app-echo.com/api/other/index
 }
 
 - 获取专辑详细信息
+
 ```
 // id为obj_id
 
@@ -76,6 +79,7 @@ http://www.app-echo.com/api/sound/info?id=1289833&comment=1
 ```
 
 - 获取热门榜单
+
 ```
 传递参数limit=返回数据条数
 // 日榜
@@ -90,6 +94,7 @@ http://www.app-echo.com/api/rank/sound-hot?periods=monthly&limit=12
 ```
 
 - 获取原创榜单
+
 ```
 传递参数limit=返回数据条数
 // 日榜
@@ -104,6 +109,7 @@ http://www.app-echo.com/api/rank/sound-origin?periods=monthly&limit=12
 ```
 
 - 获取视频榜单
+
 ```
 // 日榜
 http://www.app-echo.com/api/rank/mv-hot?periods=daily&limit=12
