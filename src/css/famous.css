@@ -1,0 +1,100 @@
+html{
+    font-family: "Comic Sans MS";
+    box-sizing: border-box;
+    background:#fff5f4;
+    color:#535353;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+a{text-decoration: none;color:inherit;}
+.music-well
+{
+	width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+.music-well nav
+{
+    width: 100%;
+    display:flex;
+	height: 50px;
+	background: -webkit-linear-gradient(left,#ff2d86,#ff414b);
+    border-radius: 8px 8px 0 0;
+    color:white;line-height:50px;
+}
+nav div{
+    margin:0 20px;cursor:pointer;
+}
+nav .logo {
+    margin-right: 50px;
+}
+
+.box{
+    max-width:1000px;
+    margin:50px auto;
+}
+.content>h2{
+    margin-left:25px;color:#666;
+}
+.content>div>div{
+  display: inline-block;
+  margin:25px 25px 0;
+ 
+}
+
+.content p{
+    margin: 35px 60px;
+    line-height: 24px;
+    font-size: 14px;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre-line;
+}
+.jvc-follow{
+    color:#CF7F7F;
+    font-size:14px;
+    margin:10px 0 0 0;
+}
+.jvc-name{
+    position: relative;color:#666;
+}
+.jvc-name:after{
+    content:"V";
+    width:20px;height:20px;border-radius: 50%;
+    background: #ff414b;
+    color:white;
+    display: inline-block;text-align: center;
+    line-height: 20px;
+    
+}
+.tags{
+    display: inline-block;
+    margin:20px 0 20px 25px;
+    border-radius: 5px;
+    height:20px;
+    min-width: 4em;
+    color:#ff414b;
+    line-height: 20px;
+    font-weight: bold;
+}
+.classify{
+    max-width:900px;
+}
+.classify-content{
+    min-height:500px;
+}
+.singers{
+    display: inline-block;
+    margin:25px 0 0 25px;width:225px;
+    color:#B38A8A;
+}
+/* .tags.on{
+    color:green;
+} */
+.tags:first-child
+{
+    color: green;'green';
+}
+

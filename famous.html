@@ -3,43 +3,61 @@
 <head>
 	<meta charset="UTF-8">
 	<title>MoJu-Music</title>
+	<link rel="stylesheet" href="src/css/famous.css">
 	<script src="src/js/jquery-1.11.3.min.js"></script>
 </head>
 <body>
-	<div>
-		<h1>名人</h1>
-		<div class="famous"></div>
-	</div>
-	<div>
-		<h1>群星</h1>
-		<div class="star"></div>
-	</div>
-	<div>
-		<h1>新入驻</h1>
-		<div class="latest"></div>
-	</div>
-	<div>
-		<h1>推荐</h1>
-		<div class="recommend"></div>
-	</div>
-	<div>
-		<h1>24小时名人</h1>
-		<div class="daily"></div>
-	</div>
-	<div>
-		<h1>名人分类</h1>
-		<div class="classify"></div>
-		<div class="classify-content"></div>
+	<!-- 导航 -->
+	<div class="music-well">
+		<nav>
+			<div class="logo"><a href="./music.html">MoJu-Music</a></div>
+			<div class="found">发现音乐</div>
+			<div class="fm">频道</div>
+			<div class="lib">曲库</div>
+		</nav>
 	</div>
 
-	<div class="template" style="display: none;">
-		<div id="template-famous">
-			<p><a href="" class="jvc-link"><img src="" class="jvc-cover"></a></p>
-			<p class="jvc-name"></p>
-			<p class="jvc-follow"></p>
+	<div class="box">
+		<div class="content">
+			<h2>名人</h2>
+			<div class="famous"></div>
 		</div>
-		<a id="template-tag" href=""></a>
-		<a id="template-singer" href=""></a>
+		<div class="content">
+			<h2>群星</h2>
+			<div class="star"></div>
+		</div>
+		<div class="content">
+			<h2>新入驻</h2>
+			<div class="latest"></div>
+		</div>
+		<div class="content">
+			<h2>推荐</h2>
+			<div class="recommend"></div>
+		</div>
+		<div class="content">
+			<h2>24小时名人</h2>
+			<div class="daily"></div>
+		</div>
+		<div class="content">
+			<h2>名人分类</h2>
+			<div class="classify"></div>
+			<div class="classify-content"></div>
+		</div>
+	</div>
+	
+
+	<div class="template" style="display: none;">
+		<div id="template-famous" class="tem-font">
+			<div class="template-img">
+				<a href="" class="jvc-link">
+					<img src="" class="jvc-cover" width="200">
+				</a>
+			</div>
+			<div class="jvc-name"></div>
+			<div class="jvc-follow"></div>
+		</div>
+		<a class="tags" id="template-tag" href=""></a>
+		<a class="singers" id="template-singer" href=""></a>
 	</div>
 </body>
 </html>
@@ -59,7 +77,7 @@
 				$('#template-famous').clone().attr('id',id).appendTo($('.famous')).show();
 				$('#'+id).find('.jvc-cover').attr('src',famous[i].avatar);
 				$('#'+id).find('.jvc-name').html(famous[i].name);
-				$('#'+id).find('.jvc-follow').html(famous[i].followed_count+'人关注');
+				$('#'+id).find('.jvc-follow').html(famous[i].followed_count+'人 关注');
 				$('#'+id).find('.jvc-link').attr('href','singer.html?id='+famous[i].id);
 			}
 		}
@@ -157,12 +175,12 @@
 			{
 				var id='tag-'+i
 				$('#template-tag').clone().attr('id',id).html(lists[i].famous_type_title).appendTo($('.classify')).show()
-				$('#'+id).attr('href','javascript:show('+lists[i].famous_type+')');
+				$('#'+id).attr('href','javascript:show('+lists[i].famous_type+',"'+id+'")');
 			}
 		}
 	})
 	show(1);
-	function show(type)
+	function show(type,e)
 	{
 		var type=type || 1;
 		var url='http://www.app-echo.com/api/famous/user-list-by-type?famous_type='+type+'&limit=44';
@@ -183,5 +201,7 @@
 				}
 			}
 		})
+		$('#'+e).css({'color':'green'}).siblings().css({'color':'#ff414b'})
 	}
+	
 </script>
