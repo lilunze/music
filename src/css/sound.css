@@ -76,6 +76,9 @@ nav div{
 }
 .sound-info .describtion{
     text-align:left;margin-top:50px;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre-line;
 }
 
 
