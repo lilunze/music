@@ -171,22 +171,22 @@ http://www.app-echo.com/api/rank/mv-hot?periods=monthly&limit=12
 http://www.app-echo.com/api/album/list?limit=20&page=2&condition=1%3A0%2C2%3A0
 
 // 摇滚
-http://www.app-echo.com/api/album/list?limit=20&condition=1%3A1%2C2%3A0
+http://www.app-echo.com/api/album/list?limit=20&condition=1%3A1%2C2%3A1
 
 // 流行
-http://www.app-echo.com/api/album/list?limit=20&condition=1%3A2%2C2%3A0
+http://www.app-echo.com/api/album/list?limit=20&condition=1%3A2%2C2%3A1
 
 // 电子
-http://www.app-echo.com/api/album/list?limit=20&condition=1%3A3%2C2%3A0
+http://www.app-echo.com/api/album/list?limit=20&condition=1%3A3%2C2%3A2
 
 // 古典
-http://www.app-echo.com/api/album/list?limit=20&condition=1%3A4%2C2%3A0
+http://www.app-echo.com/api/album/list?limit=20&condition=1%3A4%2C2%3A3
 
 // 爵士
-http://www.app-echo.com/api/album/list?limit=20&condition=1%3A5%2C2%3A0
+http://www.app-echo.com/api/album/list?limit=20&condition=1%3A5%2C2%3A4
 
 // 民谣
-http://www.app-echo.com/api/album/list?limit=20&condition=1%3A6%2C2%3A0
+http://www.app-echo.com/api/album/list?limit=20&condition=1%3A6%2C2%3A5
 
 // 原声
 http://www.app-echo.com/api/album/list?limit=20&condition=1%3A7%2C2%3A0
