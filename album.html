@@ -17,12 +17,12 @@
 
 	<!-- 模版 -->
 	<div id="template" style="display: none;">
-		<div id="template-album">
+		<a id="template-album">
 			<p><img src="" class="jvc-cover" style="width: 100px"></p>
 			<p><span class="jvc-name"></span></p>
 			<p><span class="jvc-singer"></span></p>
 			<p>评分：<span class="jvc-star"></span></p>
-		</div>
+		</a>
 		<div id="template-classify">
 			<h1>流派</h1>
 			<div>
@@ -100,6 +100,7 @@
 					$('#'+id).find('.jvc-name').html(lists[i].name);
 					$('#'+id).find('.jvc-singer').html(lists[i].user.name);
 					$('#'+id).find('.jvc-star').html(lists[i].score.average_score);
+					$('#'+id).attr('href','album-detail.html?id='+lists[i].id);
 				}
 			}
 		})
@@ -124,9 +125,11 @@
 					$('#'+id).find('.jvc-name').html(lists[i].name);
 					$('#'+id).find('.jvc-singer').html(lists[i].user.name);
 					$('#'+id).find('.jvc-star').html(lists[i].score.average_score);
+					$('#'+id).attr('href','album-detail.html?id='+lists[i].id);
 				}
 			}
 		})
 	}
+	show_news();
 	
 </script>

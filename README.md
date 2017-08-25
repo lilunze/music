@@ -213,3 +213,9 @@ http://www.app-echo.com/api/album/list?limit=20&condition=1%3A11%2C2%3A0
 ```
 http://www.app-echo.com/api/album/list-for-tab?type=hot&limit=20
 ```
+
+- 获取专辑详细信息
+
+```
+http://www.app-echo.com/api/album/info?id=
+```
