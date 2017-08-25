@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MoJu-Music</title>
+	<script src="src/js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	<p><img src="" class="jvc-cover" style="width: 200px;"></p>
+	<p>专辑名：<span class="jvc-name"></span></p>
+	<p>表演者：<span class="jvc-singer"></span></p>
+	<p>专辑语种：<span class="jvc-language"></span></p>
+	<p>专辑风格：<span class="jvc-style"></span></p>
+	<p>专辑类别：<span class="jvc-classify"></span></p>
+	<p>唱片公司：<span class="jvc-published"></span></p>
+	<p>发行时间：<span class="jvc-date"></span></p>
+	<p>评分：<span class="jvc-score"></span></p>
+	<p>评分人数：<span class="jvc-score-count"></span></p>
+	<p><span class="jvc-listen"></span>人想听</p>
+	<p><span class="jvc-has-listen"></span>人听过</p>
+	<h1>专辑歌曲列表</h1>
+	<ul class="sounds"></ul>
+	<h1>此歌手的其他专辑</h1>
+	<ul class="albums"></ul>
+	<h1>专辑评论</h1>
+	<ul class="comments"></ul>
+
+	<!-- 模版 -->
+	<div class="template" style="display: none;">
+		<li id="template-sound">
+			<p class="jvc-tag"></p>
+			<p class="jvc-name"></p>
+			<p>来源：<img src="" class="jvc-icon"><span class="jvc-from"></span></p>
+		</li>
+		<li id="template-album">
+			<a href="" class="jvc-link">
+				<p><img src="" class="jvc-cover" style="width: 200px"></p>
+				<p class="jvc-name"></p>
+			</a>
+		</li>
+		<li id="template-comment">
+			<p><img src="" class="jvc-avatar"></p>
+			<p class="jvc-name"></p>
+			<p class="jvc-date"></p>
+			<p class="jvc-content"></p>
+		</li>
+	</div> 
+</body>
+</html>
+<script>
+	var id = location.search;
+	id= id.substring(4,id.length);
+
+	// 获取专辑详情
+	$.ajax({
+		url:'http://47.94.100.222/change.php',
+		dataType:'json',
+		type:'POST',
+		data:{'url':'http://www.app-echo.com/api/album/info?id='+id},
+		success:function(res){
+			var info=res.info;
+			console.log(info);
+			$('.jvc-cover').attr('src',info.cover_url);
+			$('.jvc-name').html(info.name);
+			$('.jvc-singer').html(info.user.name);
+			$('.jvc-language').html(info.lang);
+			$('.jvc-style').html(info.school);
+			$('.jvc-classify').html(info.category);
+			if(info.company)
+			{
+				$('.jvc-published').html(info.company.name);
+			}
+			else
+			{
+				$('.jvc-published').html('未知');
+			}
+			
+			$('.jvc-date').html(info.issue_date);
+			$('.jvc-score').html(info.score.average_score);
+			$('.jvc-score-count').html(info.score.members);
+			$('.jvc-listen').html(info.want_listen_count);
+			$('.jvc-has-listen').html(info.listened_count);
+
+			for(var i=0;i<info.sounds.length;i++)
+			{
+				var id='sound-'+i;
+				$('#template-sound').clone().attr('id',id).appendTo($('.sounds')).show();
+				$('#'+id).find('.jvc-name').html(info.sounds[i].name);
+				$('#'+id).find('.jvc-from').html(info.sounds[i].from);
+				$('#'+id).find('.jvc-tag').html(i+1);
+				$('#'+id).find('.jvc-icon').attr('src',info.sounds[i].from_icon);
+			}
+
+			for(var j=0;j<info.album.length;j++)
+			{
+				var id='album-'+j;
+				$('#template-album').clone().attr('id',id).appendTo($('.albums')).show();
+				$('#'+id).find('.jvc-cover').attr('src',info.album[j].cover_url);
+				$('#'+id).find('.jvc-name').html(info.album[j].name);
+				$('#'+id).find('.jvc-link').attr('href','album-detail.html?id='+info.album[j].id)
+			}
+
+			for(var m=0;m<info.comments.length;m++)
+			{
+				var id='comment-'+m;
+				$('#template-comment').clone().attr('id',id).appendTo($('.comments')).show();
+				$('#'+id).find('.jvc-avatar').attr('src',info.comments[m].user.avatar);
+				$('#'+id).find('.jvc-name').html(info.comments[m].user.name);
+				$('#'+id).find('.jvc-date').html(info.comments[m].create_time);
+				$('#'+id).find('.jvc-content').html(info.comments[m].original_content);
+			}
+		}
+	})
+</script>

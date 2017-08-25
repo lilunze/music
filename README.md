@@ -216,6 +216,8 @@ http://www.app-echo.com/api/album/list-for-tab?type=hot&limit=20
 
 - 获取专辑详细信息
 
+
 ```
-http://www.app-echo.com/api/album/info?id=
+接收专辑的id参数
+http://www.app-echo.com/api/album/info?id=参数
 ```
