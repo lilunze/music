@@ -33,7 +33,7 @@
 		</div>
 
 		<li id="template-sound">
-			<a href="">
+			<a href="" class="jvc-sound-link">
 				<p><img src="" class="jvc-avatar" style="width: 50px"></p>
 				<p class="jvc-song"></p>
 				<p class="jvc-singer"></p>
@@ -63,6 +63,7 @@
 		}
 	})
 
+	set('hot');
 	function set(type)
 	{
 		var url='http://www.app-echo.com/api/channel/index?order=hot';
@@ -112,6 +113,7 @@
 						$('#'+ids).find('.jvc-avatar').attr('src',fm[j].pic);
 						$('#'+ids).find('.jvc-song').html(fm[j].name);
 						$('#'+ids).find('.jvc-singer').html(fm[j].user.name);
+						$('#'+ids).find('.jvc-sound-link').attr('href','sound.html?id='+fm[j].id)
 					}
 
 				}
