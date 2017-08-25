@@ -8,40 +8,55 @@
 </head>
 <body>
 	<div class="music-well">
-		<!-- 导航 -->
+		
 		<nav>
-			<div class="logo">MoJu-Music</div>
+			<div class="logo"><a href="./music.html">MoJu-Music</a></div>
 			<div class="found">发现音乐</div>
 			<div class="fm">频道</div>
 			<div class="lib">曲库</div>
 		</nav>
 	</div>
+	<div class="wrapper">
+		<div class="sound-info">
+			
+			<h2 class="sound-title"><span class="jvc-name"></span></h2>
+			<div class="sound-img">
+				<img src="" class="jvc-cover" width='300'>
+				<div class="audio-control">
+					<a href="javascript:void(0)" id="play">►</a>
+					
+				</div>
+			</div>			
+			<div><span class="jvc-fm"></span></div>
 
+			
+			
+			<p class="describtion">
+				<span class="jvc-info"></span>
+			</p>
+		</div>
 	
-	
-	<div class="sound-info">
-		<h1>歌曲信息</h1>
-		<div>歌名：<span class="jvc-name"></span></div>
-		<div>频道：<span class="jvc-fm"></span></div>
-		<div>封面：<img src="" class="jvc-cover" style="width: 100px;"></div>
-		<div><a href="javascript:void(0)" id="play">播放</a><a href="javascript:void(0)" id="pause">暂停</a></div>
-		
-		<span class="jvc-info"></span>
-	</div>
+		<div class="sound-comments">
+			<h2>热门评论</h2>
 
-	<div class="sound-comments">
-		<h1>热门评论</h1>
-		<div class="comments"></div>
+			<div class="comments"></div>
+		</div>
+
 	</div>
+	
 
 	<div id="template" style="display: none;">
 		<div id="template-comment">
-			<p>评论人:<span class="jvc-name"></span></p>
-			<p>评论人头像：<img class="jvc-avatar"></></p>
-			<p>评论时间：<span class="jvc-date"></span></p>
-			<p>评论内容：<span class="jvc-content"></span></p>
+			<p class="author"><span class="jvc-name"></span>
+				<span class="jvc-date f-right"></span>
+			</p>	
+			<img class="jvc-avatar">
+			
+			<p class="content"><span class="jvc-content"></span></p>
 		</div>
 	</div>
+
+
 	<audio id="audio" class="jvc-audio"></audio>
 </body>
 </html>
@@ -69,15 +84,48 @@
 				$('#template-comment').clone().attr('id',id).appendTo($('.comments')).show();
 				$('#'+id).find('.jvc-name').html(comment.user.name);
 				$('#'+id).find('.jvc-avatar').attr('src',comment.user.avatar);
-				$('#'+id).find('.jvc-date').html(comment.create_time);
+
+				
+				var timer = parseInt($('#'+id).find('.jvc-date').html(comment.create_time).text()*1000);
+				var date = new Date(timer);
+				var commentTime =formatDateTime(date);
+						
+				function formatDateTime(date) {  
+					var m = date.getMonth() + 1;  
+					m = m < 10 ? ('0' + m) : m;  
+					var d = date.getDate();  
+					d = d < 10 ? ('0' + d) : d;  
+					var h = date.getHours();  
+					h=h < 10 ? ('0' + h) : h;  
+					var minute = date.getMinutes();  
+					minute = minute < 10 ? ('0' + minute) : minute;  
+					return m + '-' + d+' '+h+':'+minute;  
+				}; 
+				
+				$('#'+id).find('.jvc-date').html(commentTime);
+
 				$('#'+id).find('.jvc-content').html(comment.content);
 			}
 		}
 	})
-	$('#play').on('click',function(){
-		document.getElementById('audio').play();
-	})
-	$('#pause').on('click',function(){
-		document.getElementById('audio').pause();
-	})
-</script>
+
+	
+	// $('#play').on('click',function(){
+	// 	document.getElementById('audio').play();
+	// })
+	// $('#pause').on('click',function(){
+	// 	document.getElementById('audio').pause();
+	// })
+	const audio = document.getElementById('audio');
+	const playM = document.getElementById('play');
+	function player(){
+		const method = audio.paused ? 'play' : 'pause';
+		audio[method]();
+	}
+	function text(){
+		const icon = audio.paused ? '►' : '❚ ❚';
+		playM.textContent = icon;
+	}
+	playM.addEventListener('click',player);
+	playM.addEventListener('click',text);
+</script> 
