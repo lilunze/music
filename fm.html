@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MoJu-Music</title>
+	<script src="src/js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	<a href="javascript:set('hot')">频道首页</a>
+	<a href="javascript:set('new')">最新</a>
+	<a href="javascript:set('hot')">最热</a>
+	<h1>频道分类</h1>
+	<ul class="tags"></ul>
+	<h1>频道列表</h1>
+	<div class="albums"></div>
+
+	<!-- 模版 -->
+	<div class="template" style="display: none;">
+		<li id="template-tag">
+			<a href="" class="jvc-link">
+				<img src="" class="jvc-icon"><span class="jvc-tag"></span>
+			</a>
+		</li>
+
+		<div id="template-album">
+			<p>频道封面：<img src="" class="jvc-cover" style="width: 200px"></p>
+			<p>频道名：<span class="jvc-name"></span></p>
+			<p>歌曲数：<span class="jvc-sound-count"></span></p>
+			<p>关注量：<span class="jvc-follow"></span></p>
+			<p>转发量：<span class="jvc-send"></span></p>
+			<h1>频道内歌曲</h1>
+			<ul class="sounds"></ul>
+		</div>
+
+		<li id="template-sound">
+			<a href="">
+				<p><img src="" class="jvc-avatar" style="width: 50px"></p>
+				<p class="jvc-song"></p>
+				<p class="jvc-singer"></p>
+			</a>
+		</li>
+	</div>
+
+</body>
+</html>
+<script>
+	// 获取频道分类
+	$.ajax({
+		url:'http://47.94.100.222/change.php',
+		dataType:'json',
+		data:{'url':'http://www.app-echo.com/api/channel/tag'},
+		type:'POST',
+		success:function(res){
+			var tags=res.categories;
+			for(var i=0;i<tags.length;i++)
+			{
+				var id='tag-'+i;
+				$('#template-tag').clone().attr('id',id).appendTo($('.tags')).show();
+				$('#'+id).find('.jvc-icon').attr('src',tags[i].icon_url);
+				$('#'+id).find('.jvc-tag').html(tags[i].name);
+				$('#'+id).find('.jvc-link').attr('href','javascript:set('+tags[i].id+')')
+			}
+		}
+	})
+
+	function set(type)
+	{
+		var url='http://www.app-echo.com/api/channel/index?order=hot';
+		if(type=='hot')
+		{
+			url=url;
+		}
+		else if(type=='new')
+		{
+			url='http://www.app-echo.com/api/channel/index?order=new';
+		}
+		else
+		{
+			url='http://www.app-echo.com/api/channel/index?tag_id='+type;
+		}
+		get_albums(url);
+	}
+
+	// 获取专辑列表
+	function get_albums(url)
+	{
+		$.ajax({
+			url:'http://47.94.100.222/change.php',
+			dataType:'json',
+			data:{'url':url},
+			type:'POST',
+			success:function(res)
+			{
+				$('.albums').empty();
+				var lists=res.channels;
+				console.log(lists);
+				for(var i=0;i<lists.length;i++)
+				{
+					var id='album-'+i;
+					$('#template-album').clone().attr('id',id).appendTo($('.albums')).show();
+					$('#'+id).find('.jvc-cover').attr('src',lists[i].pic);
+					$('#'+id).find('.jvc-name').attr('src',lists[i].name);
+					$('#'+id).find('.jvc-sound-count').html(lists[i].sound_count);
+					$('#'+id).find('.jvc-follow').html(lists[i].follow_count);
+					$('#'+id).find('.jvc-send').html(lists[i].share_count);
+
+					var fm=lists[i].sound;
+					for(var j=0;j<fm.length;j++)
+					{
+						var ids='fm-'+i+'-'+j;
+						$('#template-sound').clone().attr('id',ids).appendTo($('#'+id).find('.sounds')).show();
+						$('#'+ids).find('.jvc-avatar').attr('src',fm[j].pic);
+						$('#'+ids).find('.jvc-song').html(fm[j].name);
+						$('#'+ids).find('.jvc-singer').html(fm[j].user.name);
+					}
+
+				}
+			}
+		})
+	}
+</script>

@@ -216,8 +216,37 @@ http://www.app-echo.com/api/album/list-for-tab?type=hot&limit=20
 
 - 获取专辑详细信息
 
-
 ```
 接收专辑的id参数
 http://www.app-echo.com/api/album/info?id=参数
+```
+
+- 获取频道首页数据
+
+```
+http://www.app-echo.com/api/channel/index
+```
+
+- 获取频道类别
+
+```
+http://www.app-echo.com/api/channel/tag
+```
+
+- 获取频道最新
+
+```
+http://www.app-echo.com/api/channel/index?order=new
+```
+
+- 获取频道最热
+
+```
+http://www.app-echo.com/api/channel/index?order=hot
+```
+
+- 获取对应频道类别的专辑
+
+```
+http://www.app-echo.com/api/channel/index?tag_id=参数
 ```
