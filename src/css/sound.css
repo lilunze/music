@@ -87,7 +87,9 @@ nav .logo {
 
 
 
-
+.sound-comments{
+    max-width:500px;
+}
 
 .sound-comments>h2{
    padding-left:15px;

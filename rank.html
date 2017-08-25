@@ -3,27 +3,52 @@
 <head>
 	<meta charset="UTF-8">
 	<title>MoJu-Music</title>
+	<link rel="stylesheet" href="src/css/rank.css">
 	<script src="src/js/jquery-1.11.3.min.js"></script>
 </head>
 <body>
-	<div>
-		<h1>日榜</h1>
-		<div class="daily"></div>
+	<!-- 导航 -->
+	<div class="music-well">
+		<nav>
+			<div class="logo"><a href="./music.html">MoJu-Music</a></div>
+			<div class="found">发现音乐</div>
+			<div class="fm">频道</div>
+			<div class="lib">曲库</div>
+		</nav>
 	</div>
-	<div>
-		<h1>周榜</h1>
-		<div class="weekly"></div>
+
+	<!-- 内容区 -->
+	<div class="box">
+		<div class="background"></div>
+		<div class="w260">
+			<h2>日榜</h1>
+			<div class="daily"></div>
+		</div>
+		<div class="w260">
+			<h2>周榜</h1>
+			<div class="weekly"></div>
+		</div>
+		<div class="w260">
+			<h2>月榜</h1>
+			<div class="monthly"></div>
+		</div>
 	</div>
-	<div>
-		<h1>月榜</h1>
-		<div class="monthly"></div>
-	</div>
+	
+
 	<div class="template" style="display: none;">
-		<div id="template-rank">
-			<strong class="jvc-tag"></strong>
-			<p><a href="" class="jvc-link"><img src="" class="jvc-cover" style="width: 100px"></a></p>
-			<p class="jvc-name"></p>
-			<p class="jvc-author"></p>
+		<div id="template-rank" class="hover">	
+			<div class="img-info">
+				<a href="" class="jvc-link">
+				<img src="" class="jvc-cover"></a></div>
+			<div class="rank-info">
+				<p class="jvc-tag"></p>
+				<div>
+					<div class="jvc-name"></div>
+					<div class="jvc-author"></div>
+				</div>
+				
+			</div>
+			
 		</div>
 	</div>
 </body>
