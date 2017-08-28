@@ -6,7 +6,30 @@
 	<script src="src/js/jquery-1.11.3.min.js"></script>
 </head>
 <body>
-	<div><p></p></div>
+	<div>
+		<p><img src="" class="jvc-avatar" style="width: 200px"></p>
+		<p class="jvc-name"></p>
+		<p class="jvc-type"></p>
+		<p class="jvc-constellation"></p>
+		<p class="jvc-city"></p>
+		<p>被<span class="jvc-follow"></span>关注</p>
+		<p class="jvc-intro"></p>
+		<h1>歌曲列表</h1>
+		<div class="songs"></div>
+
+		<!-- 模版 -->
+		<div class="template" style="display: none;">
+			<div id="template-song">
+				<p><img src="" class="jvc-cover" style="width: 140px"></p>
+				<p class="jvc-song"></p>
+				<p class="jvc-tag"></p>
+				<p><span class="jvc-like"></span>喜欢</p>
+				<a href="javascript:void(0)" class="jvc-play">播放</a>
+				<a href="javascript:void(0)" class="jvc-pause">暂停</a>
+				<audio class="jvc-audio"></audio>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
 <script>
@@ -20,7 +43,14 @@
 		type:'POST',
 		data:{'url':'http://www.app-echo.com/api/user/info?id='+id},
 		success:function(res){
-			console.log(res);
+			// console.log(res);
+			$('.jvc-avatar').attr('src',res.info.avatar);
+			$('.jvc-name').html(res.info.name);
+			$('.jvc-type').html(res.info.famous.job_title);
+			$('.jvc-constellation').html(res.info.constellation);
+			$('.jvc-city').html(res.info.city);
+			$('.jvc-follow').html(res.info.num.followed);
+			$('.jvc-intro').html(res.info.intro);
 		}
 	})
 
@@ -31,18 +61,34 @@
 		type:'POST',
 		data:{'url':'http://www.app-echo.com/api/star/info?uid='+id},
 		success:function(res){
-			console.log(res);
+			var sound=res.sound_hot;
+			console.log(sound);
+			for(var i=0;i<sound.length;i++)
+			{
+				var id="sound-"+i;
+				$('#template-song').clone().attr('id',id).appendTo($('.songs')).show();
+				$('#'+id).find('.jvc-cover').attr('src',sound[i].pic);
+				$('#'+id).find('.jvc-song').html(sound[i].name);
+				$('#'+id).find('.jvc-tag').html(sound[i].channel!==null?sound[i].channel.name:'');
+				$('#'+id).find('.jvc-like').html(sound[i].like_count);
+				$('#'+id).find('.jvc-audio').attr('src',sound[i].source);
+				$('#'+id).find('.jvc-play').attr('onclick','play('+i+')');
+				$('#'+id).find('.jvc-pause').attr('onclick','pause('+i+')')
+			}
 		}
 	})
 
-	// 获取歌手其他信息
-	$.ajax({
-		url:'http://47.94.100.222/change.php',
-		dataType:'json',
-		type:'POST',
-		data:{'url':'http://www.app-echo.com/api/integral/get-rank-list?uid='+id+'&limit=50'},
-		success:function(res){
-			console.log(res);
-		}
-	})
+	// 播放音乐
+	function play(i)
+	{
+		var obj=$('.jvc-audio').eq(i)[0];
+		obj.play();
+	}
+
+	// 暂停音乐
+	function pause(i)
+	{
+		var obj=$('.jvc-audio').eq(i)[0];
+		obj.pause();
+	}
 </script>
