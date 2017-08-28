@@ -57,6 +57,9 @@ http://www.app-echo.com/api/album/list-for-tab?type=hot&limit=参数&page=参数
 |limit|number|每页返回的数据量|
 |page|number|专辑列表的页码信息|
 
+
+
+
 - 获取专辑详细信息
 
 ```
@@ -68,6 +71,8 @@ http://www.app-echo.com/api/album/info?id=参数
 |key|type|含义|
 |:---:|:---:|:---:|
 |id|number|专辑的唯一标识id|
+
+
 
 - 获取歌曲详细信息
 
@@ -113,7 +118,10 @@ http://www.app-echo.com/api/famous/user-list-by-type?famous_type=参数1&limit=�
 |page|number|列表的页码信息|
 |famous_type|number|名人分类的唯一标识id|
 
+
+
 - 名人的详细信息
+
 
 ```
 // 基本信息
@@ -130,6 +138,8 @@ http://www.app-echo.com/api/star/info?uid=参数
 |:---:|:---:|:---:|
 |id|number|名人的唯一标识id|
 |uid|number|名人的唯一标识id|
+
+
 
 - 获取热门榜单
 
@@ -153,6 +163,8 @@ periods关键字类型
 |weekly|周榜|
 |monthly|月榜|
 
+
+
 - 获取原创榜单
 
 ```
@@ -160,11 +172,13 @@ http://www.app-echo.com/api/rank/sound-origin?periods=参数1&limit=参数2&page
 
 ```
 
+
 - 获取视频榜单
 
 ```
 http://www.app-echo.com/api/rank/mv-hot?periods=daily&limit=12&page=参数3
 ```
+
 
 - 每日精选
 
@@ -174,6 +188,8 @@ http://www.app-echo.com/api/other/index
 
 > 返回的数据中 hot_recommend 字段为每日精选
 
+
+
 - 获取频道首页数据
 
 ```
@@ -182,11 +198,15 @@ http://www.app-echo.com/api/channel/index
 
 > 频道首页的数据返回与下面讲到的热门数据相同
 
+
+
 - 获取频道类别
 
 ```
 http://www.app-echo.com/api/channel/tag
 ```
+
+
 
 - 获取最新频道列表
 
@@ -194,17 +214,22 @@ http://www.app-echo.com/api/channel/tag
 http://www.app-echo.com/api/channel/index?order=new
 ```
 
+
+
 - 获取最热频道列表
 
 ```
 http://www.app-echo.com/api/channel/index?order=hot
 ```
 
+
+
 - 获取对应频道类别的专辑
 
 ```
 http://www.app-echo.com/api/channel/index?tag_id=参数
 ```
+
 
 传递的参数
 
