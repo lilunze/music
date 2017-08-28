@@ -21,7 +21,7 @@ a{text-decoration: none;color:inherit;}
 	height: auto;
 	border-radius: 8px;
 }
-.music-well nav
+.music-well .nav
 {
     width: 100%;
     display:flex;
@@ -30,10 +30,10 @@ a{text-decoration: none;color:inherit;}
     border-radius: 8px 8px 0 0;
     color:white;line-height:50px;
 }
-nav div{
+.nav div{
     margin:0 20px;cursor:pointer;
 }
-nav .logo {
+.nav .logo {
     margin-right: 50px;
 }
 
@@ -105,7 +105,7 @@ nav .logo {
 }
 .author{margin-left:60px;}
 .jvc-name{
-    color:#898989;
+    color:#CF7F7F;
 }
 .content{
     margin:0 10px;padding:10px 0;
