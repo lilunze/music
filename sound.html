@@ -10,43 +10,34 @@
 	<!-- 导航 -->
 	<div class="music-well">
 		<nav class="nav">
-			<div class="logo"><a href="./music.html">MoJu-Music</a></div>
-			<div class="found"><a href="./music.html">发现</a></div>
-			<div class="fm"><a href="./fm.html">频道</a></div>
+			<div class="logo nav-list"><a href="./music.html">MoJu-Music</a></div>
+			<div class="nav-list"><a href="./music.html">发现</a></div>
+			<div class="nav-list"><a href="./fm.html">频道</a></div>
 	</nav>
 	</div>
 
-	<div class="wrapper">
-		<div class="sound-info">
-			
-			<h2 class="sound-title"><span class="jvc-name"></span></h2>
+	<div class="wrapper clearfix">
+		<div class="sound-info f-left">
+			<h2><span class="jvc-name"></span></h2>
 			<div class="sound-img">
 				<img src="" class="jvc-cover" width='300'>
 				<div class="audio-control">
-					<a href="javascript:void(0)" id="play">►</a>
-					
+					<a href="javascript:void(0)" id="play">►</a>					
 				</div>
 			</div>			
-			<div><span class="jvc-fm"></span></div>
-
-			
-			
-			<p class="describtion jvc-info">
-				
-			</p>
+			<div><span class="jvc-fm"></span></div>			
+			<p class="describtion jvc-info"></p>
 		</div>
 	
-		<div class="sound-comments">
+		<div class="f-right">
 			<h2>热门评论</h2>
-
 			<div class="comments"></div>
 		</div>
-
 	</div>
 	
 
 	<div id="template" style="display: none;">
-		<div id="template-comment">
+		<div id="template-comment" class="comments-info">
 			<p class="author"><span class="jvc-name"></span>
 				<span class="jvc-date f-right"></span>
 			</p>	

@@ -14,7 +14,13 @@ a{text-decoration: none;color:inherit;}
 .f-right{
     float:right;
 }
-
+.clearfix:after {
+    content: "hello world";
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0;
+} 
 .music-well
 {
 	width: 100%;
@@ -30,84 +36,63 @@ a{text-decoration: none;color:inherit;}
     border-radius: 8px 8px 0 0;
     color:white;line-height:50px;
 }
-.nav div{
+.nav .nav-list{
     margin:0 20px;cursor:pointer;
 }
 .nav .logo {
     margin-right: 50px;
 }
 
-
 .wrapper{
-    display: flex;margin-top:50px;
+    width:1240px;margin:20px auto 0;
 }
-.wrapper>div{flex:1;margin:0 50px;}
 
 .sound-info{
     text-align: center;
 }
-#sound-title{
-    width:100%;
-}
 
-.sound-img{
+.sound-info .sound-img{
     width:310px;padding:5px;
     margin:20px auto;
-   position: relative;
-   
+    position: relative;   
     border-radius: 5px;
-
-
 }
-.audio-control{
+.sound-info .audio-control{
     position: absolute;
     width:100px;height: 100px;
-    border-radius:50%;
-   
+    border-radius:50%; 
     top:50%;left:50%;
     transform:translate(-50%,-50%);
     cursor:pointer;
 }
-.audio-control>a{
+.sound-info #play{
     display: inline-block;
-    color:white;
+    color:#CF7F7F;
     transform:scale(3);
     line-height:100px;
     text-align: center;
-
 }
 .sound-info .describtion{
+    width:700px;
     margin: 35px;
     line-height: 34px;
-    color: #333;
     word-break: break-all;
     word-wrap: break-word;
     white-space: pre-line;
 }
 
-
-
-.sound-comments{
-    max-width:500px;
-}
-
-.sound-comments>h2{
-   padding-left:15px;
-   color:#898989;
-}
-.comments>div{
+.comments .comments-info{
     padding:10px;position: relative;
-    border-bottom:1px solid #efefef;
+    border-bottom:1px solid #CF7F7F;
 }
-.comments>div img{
+.comments .jvc-avatar{
     max-width:50px;border-radius: 50%;position: absolute;
     left:10px;top:10px;
 }
-.author{margin-left:60px;}
-.jvc-name{
+.comments .author{margin-left:60px;}
+.comments .jvc-name{
     color:#CF7F7F;
 }
-.content{
+.comments .content{
     margin:0 10px;padding:10px 0;
 }
-

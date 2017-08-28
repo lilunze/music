@@ -46,7 +46,7 @@ b{font-size:24px;font-weight: bold;}
     border-radius: 8px 8px 0 0;
     color:white;line-height:50px;
 }
-.nav div{
+.nav .nav-list{
     margin:0 20px;cursor:pointer;
 }
 .nav .logo {

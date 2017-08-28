@@ -3,47 +3,71 @@
 <head>
 	<meta charset="UTF-8">
 	<title>MoJu-Music</title>
+	<link rel="stylesheet" href="./src/css/album-detail.css">
 	<script src="src/js/jquery-1.11.3.min.js"></script>
 </head>
 <body>
-	<p><img src="" class="jvc-cover" style="width: 200px;"></p>
-	<p>专辑名：<span class="jvc-name"></span></p>
-	<p>表演者：<span class="jvc-singer"></span></p>
-	<p>专辑语种：<span class="jvc-language"></span></p>
-	<p>专辑风格：<span class="jvc-style"></span></p>
-	<p>专辑类别：<span class="jvc-classify"></span></p>
-	<p>唱片公司：<span class="jvc-published"></span></p>
-	<p>发行时间：<span class="jvc-date"></span></p>
-	<p>评分：<span class="jvc-score"></span></p>
-	<p>评分人数：<span class="jvc-score-count"></span></p>
-	<p><span class="jvc-listen"></span>人想听</p>
-	<p><span class="jvc-has-listen"></span>人听过</p>
-	<h1>专辑歌曲列表</h1>
-	<ul class="sounds"></ul>
-	<h1>此歌手的其他专辑</h1>
-	<ul class="albums"></ul>
-	<h1>专辑评论</h1>
-	<ul class="comments"></ul>
+	
+	<div class="wrapper clearfix">
+		<div class="albums-info f-left">
+			<div><img src="" class="jvc-cover" style="width: 300px;"></div>
+			<div>专辑名：<span class="jvc-name"></span></div>
+			<div>歌手名：<span class="jvc-singer"></span></div>
+			<div>专辑语种：<span class="jvc-language"></span></div>
+			<div>专辑风格：<span class="jvc-style"></span></div>
+			<div>专辑类别：<span class="jvc-classify"></span></div>
+			<div>唱片公司：<span class="jvc-published"></span></div>
+			<div>发行时间：<span class="jvc-date"></span></div>
+			<div>
+				<span>评分:<span class="jvc-score"> </span> </span>
+				<span>评分人数:<span class="jvc-score-count"> </span> </span>
+				<span><span class="jvc-listen"></span>人想听 </span>
+				<span><span class="jvc-has-listen"></span>人听过</span>
+			</div>			
+			<div>
+				<h2 style="margin:10px auto 0;">此歌手的其他专辑</h2>
+				<ul class="albums clearfix"></ul>
+			</div>
+		</div>
+		
+		<div class="album-music-list f-right">
+			<div>
+				<h2 style="margin-top:0">专辑歌曲列表</h2>
+				<ul class="sounds"></ul>
+			</div>			
+			<div>
+				<h2>精彩评论</h2>
+				<ul class="comments"></ul>
+			</div>
+		</div>
+		
+		
+	</div>
+	
 
 	<!-- 模版 -->
 	<div class="template" style="display: none;">
-		<li id="template-sound">
-			<p class="jvc-tag"></p>
-			<p class="jvc-name"></p>
-			<p>来源：<img src="" class="jvc-icon"><span class="jvc-from"></span></p>
+		<li id="template-sound" class="sound-list clearfix">
+			<span class="jvc-tag"></span>
+			<span class="jvc-name"></span>
+			<span class="sound-from f-right">
+				<img src="" class="jvc-icon" width="20">
+				<span class="jvc-from"> </span>
+			</span>
 		</li>
-		<li id="template-album">
+		<li id="template-album" class="other-albums f-left">
 			<a href="" class="jvc-link">
-				<p><img src="" class="jvc-cover" style="width: 200px"></p>
+				<p><img src="" class="jvc-cover" width="150"></p>
 				<p class="jvc-name"></p>
 			</a>
 		</li>
-		<li id="template-comment">
-			<p><img src="" class="jvc-avatar"></p>
-			<p class="jvc-name"></p>
-			<p class="jvc-date"></p>
-			<p class="jvc-content"></p>
-		</li>
+		<div id="template-comment" class="comments-info">			
+			<p class="author"><span class="jvc-name"></span>
+				<span class="jvc-date f-right"></span>
+			</p>	
+			<img class="jvc-avatar">			
+			<div class="content"><span class="jvc-content"></span></div>
+		</div>
 	</div> 
 </body>
 </html>
@@ -106,7 +130,24 @@
 				$('#template-comment').clone().attr('id',id).appendTo($('.comments')).show();
 				$('#'+id).find('.jvc-avatar').attr('src',info.comments[m].user.avatar);
 				$('#'+id).find('.jvc-name').html(info.comments[m].user.name);
-				$('#'+id).find('.jvc-date').html(info.comments[m].create_time);
+				// $('#'+id).find('.jvc-date').html(info.comments[m].create_time);
+				var timer = parseInt($('#'+id).find('.jvc-date').html(info.comments[m].create_time).text()*1000);
+				var date = new Date(timer);
+				var commentTime =formatDateTime(date);
+						
+				function formatDateTime(date) {  
+					var m = date.getMonth() + 1;  
+					m = m < 10 ? ('0' + m) : m;  
+					var d = date.getDate();  
+					d = d < 10 ? ('0' + d) : d;  
+					var h = date.getHours();  
+					h=h < 10 ? ('0' + h) : h;  
+					var minute = date.getMinutes();  
+					minute = minute < 10 ? ('0' + minute) : minute;  
+					return m + '-' + d+' '+h+':'+minute;  
+				}; 
+				
+				$('#'+id).find('.jvc-date').html(commentTime);
 				$('#'+id).find('.jvc-content').html(info.comments[m].original_content);
 			}
 		}

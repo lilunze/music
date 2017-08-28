@@ -14,7 +14,7 @@ a{text-decoration: none;color:inherit;}
 	height: auto;
 	border-radius: 8px;
 }
-.music-well nav
+.music-well .nav
 {
     width: 100%;
     display:flex;
@@ -23,24 +23,28 @@ a{text-decoration: none;color:inherit;}
     border-radius: 8px 8px 0 0;
     color:white;line-height:50px;
 }
-nav div{
+.nav .nav-list{
     margin:0 20px;cursor:pointer;
 }
-nav .logo {
+.nav .logo {
     margin-right: 50px;
 }
 
-.box{
-    max-width:1000px;
-    margin:50px auto;
+.warpper{
+    width:1240px;
+    margin:20px auto;
 }
+.content{margin:0 auto;}
 .content>h2{
-    margin-left:25px;color:#666;
+    margin-left:95px;color:#666;
+    margin-bottom:0;
 }
-.content>div>div{
+.content .min-warpper{
+    width:1000px;margin:0 auto;
+}
+.content .tem-font{
   display: inline-block;
   margin:25px 25px 0;
- 
 }
 
 .content p{
@@ -71,16 +75,19 @@ nav .logo {
 }
 .tags{
     display: inline-block;
-    margin:20px 0 20px 25px;
+    margin:10px 15px;
     border-radius: 5px;
     height:20px;
     min-width: 4em;
     color:#ff414b;
+    text-align: center;
     line-height: 20px;
     font-weight: bold;
 }
 .classify{
-    max-width:900px;
+    /* max-width:900px; */
+    margin:10px auto;
+    width:1000px;
 }
 .classify-content{
     min-height:500px;
@@ -90,11 +97,7 @@ nav .logo {
     margin:25px 0 0 25px;width:225px;
     color:#B38A8A;
 }
-/* .tags.on{
-    color:green;
-} */
 .tags:first-child
 {
-    color: green;
+    color: #29DF29;
 }
-

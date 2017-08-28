@@ -3,30 +3,48 @@
 <head>
 	<meta charset="UTF-8">
 	<title>MoJu-Music</title>
+	<link rel="stylesheet" href="./src/css/singer.css">
 	<script src="src/js/jquery-1.11.3.min.js"></script>
 </head>
 <body>
-	<div>
-		<p><img src="" class="jvc-avatar" style="width: 200px"></p>
-		<p class="jvc-name"></p>
-		<p class="jvc-type"></p>
-		<p class="jvc-constellation"></p>
-		<p class="jvc-city"></p>
-		<p>被<span class="jvc-follow"></span>关注</p>
-		<p class="jvc-intro"></p>
-		<h1>歌曲列表</h1>
-		<div class="songs"></div>
+	<div class='wrapper'>
+		<div class="singer-img clearfix">
+			<img src="" class="jvc-avatar f-left">
+			<div class="singer-info f-left">
+				<h2 class="jvc-name"></h2>
+				<h4>
+					<span class="jvc-type"></span>
+					<span class="jvc-constellation"></span>
+					<span class="jvc-city"></span>
+					<span>被<i class="jvc-follow"></i>关注</span>
+				</h4>
+				
+				<div class="jvc-intro"></div>
+			</div>			
+		</div>
+
+		<div class="songs-wrapper">
+			<h4>歌曲列表</h4>
+			<div class="songs"></div>
+		</div>
+		
 
 		<!-- 模版 -->
 		<div class="template" style="display: none;">
-			<div id="template-song">
-				<p><img src="" class="jvc-cover" style="width: 140px"></p>
-				<p class="jvc-song"></p>
-				<p class="jvc-tag"></p>
-				<p><span class="jvc-like"></span>喜欢</p>
-				<a href="javascript:void(0)" class="jvc-play">播放</a>
-				<a href="javascript:void(0)" class="jvc-pause">暂停</a>
-				<audio class="jvc-audio"></audio>
+			<div id="template-song" class="songs-list f-left">
+				<img src="" class="jvc-cover" style="width: 150px">
+				<div class="other-songs-info">
+					<div class="jvc-song"></div>
+					<div class="jvc-tag"></div>
+					<div class="love"><i class="jvc-like"></i>喜欢</div>
+					<div>
+						<a href="javascript:void(0)" class="jvc-play"></a>
+						<a href="javascript:void(0)" class="jvc-pause">||</a>
+						<audio id="audio" class="jvc-audio"></audio>
+					</div>
+					
+				</div>
+				
 			</div>
 		</div>
 	</div>
@@ -72,13 +90,13 @@
 				$('#'+id).find('.jvc-tag').html(sound[i].channel!==null?sound[i].channel.name:'');
 				$('#'+id).find('.jvc-like').html(sound[i].like_count);
 				$('#'+id).find('.jvc-audio').attr('src',sound[i].source);
-				$('#'+id).find('.jvc-play').attr('onclick','play('+i+')');
+			 	$('#'+id).find('.jvc-play').attr('onclick','play('+i+')');
 				$('#'+id).find('.jvc-pause').attr('onclick','pause('+i+')')
 			}
 		}
 	})
 
-	// 播放音乐
+	//播放音乐
 	function play(i)
 	{
 		var obj=$('.jvc-audio').eq(i)[0];
@@ -91,4 +109,5 @@
 		var obj=$('.jvc-audio').eq(i)[0];
 		obj.pause();
 	}
+	
 </script>
