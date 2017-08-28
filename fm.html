@@ -3,42 +3,86 @@
 <head>
 	<meta charset="UTF-8">
 	<title>MoJu-Music</title>
+	<link rel="stylesheet" href="./src/css/fm.css">
 	<script src="src/js/jquery-1.11.3.min.js"></script>
 </head>
 <body>
-	<a href="javascript:set('hot')">频道首页</a>
-	<a href="javascript:set('new')">最新</a>
-	<a href="javascript:set('hot')">最热</a>
-	<h1>频道分类</h1>
-	<ul class="tags"></ul>
-	<h1>频道列表</h1>
-	<div class="albums"></div>
+
+	<!-- 导航 -->
+	<div class="music-well">
+		<nav class="nav">
+			<div class="logo"><a href="./music.html">MoJu-Music</a></div>
+			<div class="found"><a href="./music.html">发现</a></div>
+			<div class="fm"><a href="./fm.html">频道</a></div>
+		</nav>
+	<!-- 导航 -->
+
+	<!-- 内容 -->
+	<div class="wrapper">
+		<!-- 热度引导 -->
+		<div class="fm-list left">
+			<a class="fm-tags" href="javascript:set('hot')"><b>飙升专辑</b></a>
+			<a class="fm-tags" href="javascript:set('new')">最新</a>
+			<a class="fm-tags" href="javascript:set('hot')">最热</a>
+		</div>
+		<!-- 热度引导 -->
+
+		<!-- 频道内容 -->
+		<div class="fm-section">
+			<p><b>热门频道</b></p>
+			<div class="albums"></div>
+		</div>
+		<!-- 频道内容 -->
+
+		<!-- 频道分类 -->
+		<div class="fm-list right">
+			<div class="fm-tags"> <b>频道分类</b></div>
+			<div class="tags"></div>
+		</div>
+		<!-- 频道分类 -->
+
+	</div>
+	<!-- 内容 -->
 
 	<!-- 模版 -->
 	<div class="template" style="display: none;">
-		<li id="template-tag">
+		<div id="template-tag" class="fm-tags">
 			<a href="" class="jvc-link">
 				<img src="" class="jvc-icon"><span class="jvc-tag"></span>
 			</a>
-		</li>
-
-		<div id="template-album">
-			<p>频道封面：<img src="" class="jvc-cover" style="width: 200px"></p>
-			<p>频道名：<span class="jvc-name"></span></p>
-			<p>歌曲数：<span class="jvc-sound-count"></span></p>
-			<p>关注量：<span class="jvc-follow"></span></p>
-			<p>转发量：<span class="jvc-send"></span></p>
-			<h1>频道内歌曲</h1>
-			<ul class="sounds"></ul>
 		</div>
 
-		<li id="template-sound">
+		<div id="template-album" class="album-wrapper">
+			<div class="album-img">
+				<img class="fm-tags-imgs" height="240" src="src/img/fm-tags.png" alt="233">
+				<img class="fm-tags-imgs two" src="src/img/fm-tags2.png" alt="233">
+				<img src="" class="jvc-cover" width="240" height="240;">
+				<div class="album-share">
+					<div><a class="jvc-name" class="jvc-name"></a></div>
+					<span><i class="icons">&#9835;</i><span class="jvc-sound-count"></span></span>
+					<span><i class="icons">&#10084;</i><span class="jvc-follow"></span></span>
+					<span><i class="icons share">&#10149;</i><span class="jvc-send"></span></span>
+				</div>
+				
+			</div>
+			
+			<div>
+				<div class="sound-title">频道热门回声</div>
+				<div class="sounds clearfix"></div>
+			</div>			
+		</div>
+
+		<div id="template-sound" class="musics fleft">
 			<a href="" class="jvc-sound-link">
-				<p><img src="" class="jvc-avatar" style="width: 50px"></p>
-				<p class="jvc-song"></p>
-				<p class="jvc-singer"></p>
+				<div class="musics-img fleft">
+					<img src="" class="jvc-avatar" width="55">
+				</div>
+				<div class="musics-songs">
+					<span class="jvc-song"></span>
+					<span class="jvc-singer"></span>
+				</div>				
 			</a>
-		</li>
+		</div>
 	</div>
 
 </body>
@@ -100,7 +144,7 @@
 					var id='album-'+i;
 					$('#template-album').clone().attr('id',id).appendTo($('.albums')).show();
 					$('#'+id).find('.jvc-cover').attr('src',lists[i].pic);
-					$('#'+id).find('.jvc-name').attr('src',lists[i].name);
+					$('#'+id).find('.jvc-name').attr('src',lists[i].name).html(lists[i].name);
 					$('#'+id).find('.jvc-sound-count').html(lists[i].sound_count);
 					$('#'+id).find('.jvc-follow').html(lists[i].follow_count);
 					$('#'+id).find('.jvc-send').html(lists[i].share_count);
@@ -111,6 +155,7 @@
 						var ids='fm-'+i+'-'+j;
 						$('#template-sound').clone().attr('id',ids).appendTo($('#'+id).find('.sounds')).show();
 						$('#'+ids).find('.jvc-avatar').attr('src',fm[j].pic);
+						$('#'+ids).find('.jvc-name').html(fm[j].name);
 						$('#'+ids).find('.jvc-song').html(fm[j].name);
 						$('#'+ids).find('.jvc-singer').html(fm[j].user.name);
 						$('#'+ids).find('.jvc-sound-link').attr('href','sound.html?id='+fm[j].id)
@@ -120,4 +165,5 @@
 			}
 		})
 	}
+	
 </script>

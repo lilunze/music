@@ -1,0 +1,168 @@
+/* -- 全局样式-- */
+html{
+    font-size:16px;
+    font-family: "Comic Sans MS";
+    box-sizing: border-box;
+    background:#fff5f4;
+    color:#535353;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+a{text-decoration: none;color:inherit;}
+b{font-size:24px;font-weight: bold;}
+.fleft{float:left;}
+.fright{float:right;}
+.clearfix:after {
+    content: "hello world";
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0;
+}
+.left{
+    left:0;top:0;background: #ff2d86;
+}
+.right{
+    right:0;top:0;background: #ff414b;
+}
+/* -- 全局样式-- */
+
+/* -- 导航-- */
+.music-well
+{
+    min-width: 100%;
+	height: auto;
+    border-radius: 8px;
+    
+}
+.music-well .nav
+{
+    width: 100%;
+    display:flex;
+	height: 50px;
+	background: -webkit-linear-gradient(left,#ff2d86,#ff414b);
+    border-radius: 8px 8px 0 0;
+    color:white;line-height:50px;
+}
+.nav div{
+    margin:0 20px;cursor:pointer;
+}
+.nav .logo {
+    margin-right: 50px;
+}
+/* -- 导航-- */
+
+/* -- 最外层的大盒子-- */
+.wrapper{
+    position: relative;
+    width:1240px;
+    margin:20px auto 0;
+}
+
+/* -- 最外层的大盒子-- */
+
+/* -- 热度引导和频道分类-- */
+.fm-list{
+    position: absolute;
+    width:200px;
+    height:auto;
+    display: flex;flex-direction:column;
+    color:white;    
+    border-radius: 5px;
+}
+.fm-tags{
+    text-align: center;
+    line-height: 60px;
+    height:60px;
+    width:100%;
+    display: block;
+    border-bottom:1px solid white;
+}
+/* -- 热度引导和频道分类-- */
+
+/* -- 频道内容-- */
+.fm-section{
+    max-width:780px;
+    padding:0 20px 10px;
+    display: block;
+    margin:0 auto;
+}
+/* -- 频道内容-- */
+
+/* -- 热门频道-- */
+.share{transform:rotate(-45deg);
+    display: inline-block;
+}
+.album-wrapper{
+    width:100%;
+    display: flex;
+    margin:0 0 20px 0;
+}
+.album-img{
+    position: relative;
+    
+}
+.album-img:hover .fm-tags-imgs{
+    left:215px;opacity: 1;
+}
+.album-img:hover .fm-tags-imgs.two{
+    left:180px;
+}
+
+.fm-tags-imgs{
+    transition:all 0.7s ease;
+    position: absolute;opacity: 0;
+    left:110px;top:0;z-index: 1;
+    
+}
+.fm-tags-imgs.two{
+    top:93px;z-index: 3;
+}
+.jvc-cover{
+    position: relative;z-index: 2;
+}
+.album-share{
+    position: absolute;
+    z-index: 666;
+    bottom:10px;
+    font-size: 13px;
+    height:50px;width:100%;
+    align-items: center;    
+    background: rgba(0,0,0,.5);
+    text-align: center;
+    color:white;
+}
+.icons{
+    font-style: normal;
+    margin:0 10px;
+}
+
+.sound-title{color:#666;
+    margin:0 0 0 10px;;font-size: 18px;}
+
+.musics{
+    margin:10px 10px 0 10px;
+    width:225px;height:65px;  
+}
+.jvc-sound-link{
+    display:block;
+}
+.musics-img{
+    margin-right:10px;
+}
+.jvc-song{
+    display: block;
+    line-height: 18px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.jvc-name{
+    font-size: 18px;
+}
+.jvc-singer{
+    color:#898989;
+}
+/* -- 热门频道-- */
