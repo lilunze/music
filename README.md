@@ -149,11 +149,13 @@ http://www.app-echo.com/api/rank/sound-hot?periods=参数1&limit=参数2&page=�
 
 传递的参数
 
+
 |key|type|含义|
-|:---:|"---:|:---:|
+|:---:|:---:|:---:|
 |periods|string|获取榜单类型|
 |limit|number|每页返回的数据量|
 |page|number|请求的列表页码信息|
+
 
 periods关键字类型
 
