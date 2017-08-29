@@ -43,7 +43,7 @@ a{text-decoration: none;color:inherit;}
     background:-webkit-linear-gradient(left,#ff2d86,#ff414b);
 }
 .rank-list{
-    width:260px;margin:0 auto;
+    width:260px;margin:0 auto;;
     color:#666;
 }
 .rank-list .jvc-cover{
