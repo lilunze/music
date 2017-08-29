@@ -106,7 +106,7 @@
 	$.ajax({
 		url:'http://47.94.100.222/change.php',
 		dataType:'json',
-		data:{'url':'http://www.app-echo.com/api/famous/latest-users?page=1&limit=6'},
+		data:{'url':'http://www.app-echo.com/api/famous/latest-users?page=1&limit=8'},
 		type:'POST',
 		success:function(res){
 			var famous=res.lists;
@@ -126,7 +126,7 @@
 	$.ajax({
 		url:'http://47.94.100.222/change.php',
 		dataType:'json',
-		data:{'url':'http://www.app-echo.com/api/famous/recommend-users?page=1&limit=6'},
+		data:{'url':'http://www.app-echo.com/api/famous/recommend-users?page=1&limit=8'},
 		type:'POST',
 		success:function(res){
 			var famous=res.lists;
@@ -146,7 +146,7 @@
 	$.ajax({
 		url:'http://47.94.100.222/change.php',
 		dataType:'json',
-		data:{'url':'http://www.app-echo.com/api/famous/daily-commend-users?page=1&limit=6'},
+		data:{'url':'http://www.app-echo.com/api/famous/daily-commend-users?page=1&limit=8'},
 		type:'POST',
 		success:function(res){
 			var famous=res.lists;

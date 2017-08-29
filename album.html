@@ -144,11 +144,12 @@
 			type:'POST',
 			success:function(res){
 				var lists=res.list;
+				console.log(lists)
 				for(var i=0;i<lists.length;i++)
 				{
 					var id='album-'+i;
 					$('#template-album').clone().attr('id',id).appendTo($('.albums')).show();
-					$('#'+id).find('.jvc-cover').attr('src',lists[i].cover_url);
+					$('#'+id).find('.jvc-cover').attr('src',lists[i].cover_url||'src/img/default-album.jpg');
 					$('#'+id).find('.jvc-name').html(lists[i].name);
 					$('#'+id).find('.jvc-singer').html(lists[i].user.name);
 					$('#'+id).find('.jvc-star').html(lists[i].score.average_score);
