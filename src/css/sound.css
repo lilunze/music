@@ -83,7 +83,7 @@ h2{text-align: center;}
 }
 
 .comments .comments-info{
-    padding:10px;position: relative;
+    padding:10px;position: relative;max-width:580px;
     border-bottom:1px solid #CF7F7F;
 }
 .comments .jvc-avatar{
