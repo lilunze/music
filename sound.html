@@ -13,7 +13,7 @@
 			<div class="logo nav-list"><a href="./music.html">MoJu-Music</a></div>
 			<div class="nav-list"><a href="./music.html">发现</a></div>
 			<div class="nav-list"><a href="./fm.html">频道</a></div>
-	</nav>
+		</nav>
 	</div>
 
 	<div class="wrapper clearfix">
@@ -21,9 +21,8 @@
 			<h2><span class="jvc-name"></span></h2>
 			<div class="sound-img">
 				<img src="" class="jvc-cover" width='300'>
-				<div class="audio-control">
-					<a href="javascript:void(0)" id="play">►</a>					
-				</div>
+				<div class="mask"><a href="javascript:void(0)" id="play" class="audio-control"></a></div>
+									
 			</div>			
 			<div><span class="jvc-fm"></span></div>			
 			<p class="describtion jvc-info"></p>
@@ -101,22 +100,18 @@
 	})
 
 	
-	// $('#play').on('click',function(){
-	// 	document.getElementById('audio').play();
-	// })
-	// $('#pause').on('click',function(){
-	// 	document.getElementById('audio').pause();
-	// })
-	const audio = document.getElementById('audio');
-	const playM = document.getElementById('play');
-	function player(){
-		const method = audio.paused ? 'play' : 'pause';
-		audio[method]();
-	}
-	function text(){
-		const icon = audio.paused ? '►' : '❚ ❚';
-		playM.textContent = icon;
-	}
-	playM.addEventListener('click',player);
-	playM.addEventListener('click',text);
+	$('.mask').on('click',function(){
+		var audio=document.getElementById('audio');
+		if(audio.paused)
+		{
+			audio.play();
+			$('#play').addClass('pause');
+		}
+		else
+		{
+			audio.pause();
+			$('#play').removeClass('pause');
+		}
+	})
+
 </script> 

@@ -44,6 +44,9 @@ a{text-decoration: none;color:inherit;}
 }
 .content .tem-font{
   display: inline-block;
+  vertical-align: top;
+  width: 200px;
+  overflow: hidden;
   margin:25px 25px 0;
 }
 
